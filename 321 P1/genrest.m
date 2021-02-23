@@ -3,8 +3,8 @@ function [rest] = genrest(length)
 %   Detailed explanation goes here
 
 
-T=[0:1/8192:length];
-rest=T;
+T=length*8192;
+K=round(T,0);
+rest=zeros(1,K);
 
 end
-

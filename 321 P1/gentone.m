@@ -6,4 +6,3 @@ T=[0:1/8192:time];
 sound=gain*sin(2*pi*frequency*T);
 
 end
-
