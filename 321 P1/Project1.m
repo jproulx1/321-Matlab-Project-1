@@ -52,7 +52,8 @@ spectrogram(melody,256,196, 512 , 8192,'yaxis')
 %up to this point written by Joshua Proulx
 
 
-%echo
+
+
 
 %knguyen
 
@@ -71,6 +72,32 @@ for i = 1: size(song,1)
 end
 soundsc(songtrack, frequency)
 %spectrogram(songtrack,256,196,512, frequency, 'yaxis')
+
+
+%%PT4
+
+echo=zeros(1,2*samp_f);
+echo(1)=1;
+echo((length(echo)/4)+1)=0.5;
+echo((length(echo)/2)+1)=0.25;
+echo((length(echo)*(3/4))+1)=0.125;
+echo((length(echo))+1)=.0625;
+
+%task2
+reverb=conv(melody2,echo);
+soundsc(reverb);
+
+%plotting reverb
+figure(6)
+Xreverb=linspace(0,4.25,length(reverb));
+plot(Xreverb,reverb)
+ylabel('Frequency(Hz)');
+xlabel('Time(s)');
+figure(7)
+spectrogram(reverb,256,196,512,8192,'yaxis');
+
+
+
 
 
 
