@@ -44,21 +44,21 @@ figure(6)
 subplot(4,1,1);
 y=eigth_g2;
 x=[0:1/8192:.22];
-plot(x,y)
+plot(y)
 title('Eighth G')
 subplot(4,1,2);
 y2=eigth_f2;
-plot(x,y2);
+plot(y2);
 title('Eighth F')
 subplot(4,1,3)
 y3=half_e2;
 x2=[0:1/8192:0.97];
-plot(x2,y3)
+plot(y3)
 title('Half E')
 subplot(4,1,4)
 y4=half_d2;
 x2=[0:1/8192:0.97];
-plot(x2,y4)
+plot(y4)
 title('Half D')
 
 melody=[eigth_rest smallrest eigth_g smallrest eigth_g smallrest eigth_g smallrest half_e smallrest eigth_rest eigth_f smallrest eigth_f smallrest eigth_f smallrest half_d]
@@ -100,12 +100,12 @@ reverb=conv(melody,echo);
 soundsc(reverb);
 
 %plotting reverb
-figure(6)
+figure(4)
 Xreverb=linspace(0,4.25,length(reverb));
 plot(Xreverb,reverb)
 ylabel('Frequency(Hz)');
 xlabel('Time(s)');
-figure(7)
+figure(5)
 spectrogram(reverb,256,196,512,8192,'yaxis');
 
 
