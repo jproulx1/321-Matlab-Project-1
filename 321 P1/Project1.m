@@ -54,5 +54,23 @@ spectrogram(melody,256,196, 512 , 8192,'yaxis')
 
 %echo
 
+%knguyen
+
+A = 0.03;
+D = 0.02;
+R = 0.02;
+melody=[eigth_rest smallrest eigth_g smallrest eigth_g smallrest eigth_g smallrest half_e smallrest eigth_rest eigth_f smallrest eigth_f smallrest eigth_f smallrest half_d]
+songtrack = [];
+notes = [];
+%size(song,1)
+for i = 1: size(song,1)
+    notes = gentone(song(i,1), song(i,2), frequency);
+    plot(notes);
+    xlim([0 50]);
+    songtrack = [songtrack notes];
+end
+soundsc(songtrack, frequency)
+%spectrogram(songtrack,256,196,512, frequency, 'yaxis')
+
 
 
