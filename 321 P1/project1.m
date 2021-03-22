@@ -10,7 +10,7 @@ eigth_g=gentone(392,0.22,1,1);
 half_e=gentone(311.13,0.97,1,1);
 eigth_f=gentone(349.23, 0.22,1,1);
 half_d=gentone(293.66,0.97,1,1);
-smallrest=genrest(0.03);
+
 eigth_g2=gentone(392,0.22,1,0);
 half_e2=gentone(311.13,0.97,1,0);
 eigth_f2=gentone(349.23, 0.22,1,0);
@@ -61,7 +61,7 @@ x2=[0:1/8192:0.97];
 plot(y4)
 title('Half D')
 
-melody=[eigth_rest smallrest eigth_g smallrest eigth_g smallrest eigth_g smallrest half_e smallrest eigth_rest eigth_f smallrest eigth_f smallrest eigth_f smallrest half_d]
+melody=[eigth_rest eigth_g eigth_g eigth_g half_e eigth_rest eigth_f eigth_f eigth_f half_d]
 %soundsc(melody);
 figure(2)
 spectrogram(melody,256,196, 512 , 8192,'yaxis')

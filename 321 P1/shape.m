@@ -1,4 +1,4 @@
-function [shapeu] = shape(T,Note)
+function [shapeu] = shape(T)
 TM=T-0.07;
 
 slopea=1/(0.03*8192);
@@ -12,8 +12,8 @@ S=0.6+zeros(1,LR);
 
 sloper=-0.6/(0.02*8192);
 R=[0.6:sloper:0];
-shaped=[A D S R]
-shapeu=(Note.*shaped);
+shapeu=[A D S R]
+%shapeu=(Note.*shaped);
 
 
 
