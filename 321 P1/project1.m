@@ -97,7 +97,7 @@ echo((length(echo))+1)=.0625;
 
 
 reverb=conv(melody,echo);
-soundsc(reverb);
+%soundsc(reverb);
 
 %plotting reverb
 figure(4)
@@ -109,6 +109,9 @@ figure(5)
 spectrogram(reverb,256,196,512,8192,'yaxis');
 
 
-
-
+%generate 440hz with 9 harmonics
+harmony1=harmonics(440,1,9,[1 1 1 1 1 1 1 1 1],0);
+figure(9)
+plot(harmony1)
+soundsc(harmony1)
 

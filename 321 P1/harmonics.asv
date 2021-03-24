@@ -1,0 +1,8 @@
+function [harmonicnote] = harmonics(Frequency,Duration,N,A_vect,Shape)
+%UNTITLED2 Summary of this function goes here
+%   Detailed explanation goes here
+harmonicpart=y = zeros(1,Fs*d);
+for n=1:N
+  harmonicpart = harmonicpart + A_vect(n)*gentone(Frequency*n,Duration,A_vect(n),Shape);
+end
+
