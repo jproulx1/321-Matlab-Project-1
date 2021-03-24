@@ -129,3 +129,21 @@ subplot(2,1,2)
 xharm3=harmony1(411:1886)
 xharm4=[xharm3 xharm3]
 plot(xharm4)
+
+%clarinet
+
+J=11;
+A_vect=0.9.^[0:J-1];
+%A_vect=[1 1 1 1 1 1 1 1 1 1 1];
+D=293.6;
+Eb=311.13;
+F=349.23;
+G=392;
+
+rest1=genrest(0.25);
+G8=harmonics(G,0.25,J,A_vect,1);
+E2=harmonics(Eb,1,J,A_vect,1);
+F8=harmonics(F,0.25,J,A_vect,1);
+D2=harmonics(D,1,J,A_vect,1);
+clar_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
+soundsc(clar_harmonic)
