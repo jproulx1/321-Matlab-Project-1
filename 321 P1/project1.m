@@ -6,14 +6,14 @@
 
 
 eigth_rest=genrest(0.25);
-eigth_g=gentone(392,0.22,1,1);
-half_e=gentone(311.13,0.97,1,1);
-eigth_f=gentone(349.23, 0.22,1,1);
-half_d=gentone(293.66,0.97,1,1);
+eigth_g=gentone(392,0.25,1,1);
+half_e=gentone(311.13,1,1,1);
+eigth_f=gentone(349.23, 0.25,1,1);
+half_d=gentone(293.66,1,1,1);
 
-eigth_g2=gentone(392,0.22,1,0);
-half_e2=gentone(311.13,0.97,1,0);
-eigth_f2=gentone(349.23, 0.22,1,0);
+eigth_g2=gentone(392,0.25,1,0);
+half_e2=gentone(311.13,1,1,0);
+eigth_f2=gentone(349.23, 0.25,1,0);
 half_d2=gentone(293.66,0.97,1,0);
 %eigth_g_with_rest=gentone(392,0.25,1);
 %eigth_rest=genrest(0.25);
@@ -22,7 +22,7 @@ half_d2=gentone(293.66,0.97,1,0);
 figure(1)
 subplot(4,1,1);
 y=eigth_g;
-x=[0:1/8192:.22];
+x=[0:1/8192:.25];
 plot(x,y)
 title('Eighth G')
 subplot(4,1,2);
@@ -31,12 +31,12 @@ plot(x,y2);
 title('Eighth F')
 subplot(4,1,3)
 y3=half_e;
-x2=[0:1/8192:0.97];
+x2=[0:1/8192:1];
 plot(x2,y3)
 title('Half E')
 subplot(4,1,4)
 y4=half_d;
-x2=[0:1/8192:0.97];
+x2=[0:1/8192:1];
 plot(x2,y4)
 title('Half D')
 
@@ -110,8 +110,22 @@ spectrogram(reverb,256,196,512,8192,'yaxis');
 
 
 %generate 440hz with 9 harmonics
-harmony1=harmonics(440,1,9,[1 1 1 1 1 1 1 1 1],0);
+harmony1=harmonics(440,1,9,[1 1 1 1 1 1 1 1 1],1);
 figure(9)
-plot(harmony1)
-soundsc(harmony1)
+subplot(2,1,1)
+spectrogram(harmony1,256,196, 512 , 8192,'yaxis')
 
+harmony2=harmonics(440,1,10,[1 1 1 1 1 1 1 1 1 1],1);
+subplot(2,1,2)
+spectrogram(harmony2,256,196, 512 , 8192,'yaxis')
+figure(10)
+harmony3=harmonics(440,1,1,[1],1);
+%soundsc(harmony3)
+subplot(2,1,1)
+xharm=harmony3(411:1886);
+xharm2=[xharm xharm];
+plot(xharm2)
+subplot(2,1,2)
+xharm3=harmony1(411:1886)
+xharm4=[xharm3 xharm3]
+plot(xharm4)
