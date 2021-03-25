@@ -3,7 +3,7 @@ function [harmonicnote] = harmonics(Frequency,Duration,N,A_vect,Shape)
 %   Detailed explanation goes here
 harmonicpart=[0:1/8192:Duration];
 for n=1:N
-  harmonicpart = harmonicpart + gentone(Frequency*n,Duration,A_vect(n),Shape);
+  harmonicpart = harmonicpart + gentone(Frequency*n,Duration,A_vect(n),Shape,n);
 end
 harmonicpart = 1*harmonicpart/max(harmonicpart);
 %if Shape==0

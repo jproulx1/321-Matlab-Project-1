@@ -149,7 +149,7 @@ clar_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
 %soundsc(clar_harmonic)
 
 %piano
-B_vect=[1 3/4 1/2 1/4];
+B_vect=[1 1/2 1/2 1/2];
 J2=4
 G8P=harmonics(G,0.25,J2,B_vect,2);
 E2P=harmonics(Eb,1,J2,B_vect,2);
@@ -163,8 +163,8 @@ poop=0.25;
 T=8192*poop;
 t=[0:1:T]
 de=[exp(-(5*t/T))];
-plot(G8P)
-
+%plot(de)
+spectrogram(G8P,256,196, 512 , 8192,'yaxis')
 
 
 

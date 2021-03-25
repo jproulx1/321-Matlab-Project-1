@@ -1,4 +1,4 @@
-function [shapeu] = shape(T,Type)
+function [shapeu] = shape(T,Type,Harm)
 TM=T-0.07;
 
 slopea=1/(0.03*8192);
@@ -16,10 +16,9 @@ sloper=-0.6/(0.02*8192);
 R=[0.6:sloper:0];
 shapeu=[A D S R]
 elseif Type==2
-
 nT=8192*(T-0.03);
 t=[0:1:nT]
-de=[exp(-(5*t/nT))];
+de=[exp(-(((Harm^2)+4)*t/nT))];
 shapeu=[A de]
 end
 end
