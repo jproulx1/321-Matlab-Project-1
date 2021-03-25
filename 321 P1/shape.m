@@ -16,8 +16,10 @@ sloper=-0.6/(0.02*8192);
 R=[0.6:sloper:0];
 shapeu=[A D S R]
 elseif Type==2
-t=[0:1:8192]
-de=[1:exp(-(5*t/T-0.03)):0];
+
+nT=8192*(T-0.03);
+t=[0:1:nT]
+de=[exp(-(5*t/nT))];
 shapeu=[A de]
 end
 end

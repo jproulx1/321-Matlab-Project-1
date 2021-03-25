@@ -146,21 +146,24 @@ E2=harmonics(Eb,1,J,A_vect,1);
 F8=harmonics(F,0.25,J,A_vect,1);
 D2=harmonics(D,1,J,A_vect,1);
 clar_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
-soundsc(clar_harmonic)
+%soundsc(clar_harmonic)
 
 %piano
-
-%G8P=harmonics(G,0.25,J,A_vect,2);
-%E2P=harmonics(Eb,1,J,A_vect,2);
-%F8P=harmonics(F,0.25,J,A_vect,2);
-%D2P=harmonics(D,1,J,A_vect,2);
-%piano_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
+B_vect=[1 3/4 1/2 1/4];
+J2=4
+G8P=harmonics(G,0.25,J2,B_vect,2);
+E2P=harmonics(Eb,1,J2,B_vect,2);
+F8P=harmonics(F,0.25,J2,B_vect,2);
+D2P=harmonics(D,1,J2,B_vect,2);
+piano_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
+soundsc(piano_harmonic)
 
 figure(15)
-T=100;
-t=[0:1:8192]
-de=[1:exp(-(5*t/T-0.03)):0];
-plot(de)
+poop=0.25;
+T=8192*poop;
+t=[0:1:T]
+de=[exp(-(5*t/T))];
+plot(G8P)
 
 
 
