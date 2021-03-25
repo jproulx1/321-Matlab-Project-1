@@ -156,23 +156,11 @@ soundsc(clar_harmonic)
 %D2P=harmonics(D,1,J,A_vect,2);
 %piano_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
 
-
-
-
-
-
-
-
-
-
-
-
-ZKO=[0:1/16384:1];
-for n=1:length(ZKO)
-    ZKO(n)=1*(1-n/16384)^2;
-end
-plot(ZKO)
-
+figure(15)
+T=100;
+t=[0:1:8192]
+de=[1:exp(-(5*t/T-0.03)):0];
+plot(de)
 
 
 

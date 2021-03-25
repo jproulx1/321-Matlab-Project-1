@@ -16,11 +16,9 @@ sloper=-0.6/(0.02*8192);
 R=[0.6:sloper:0];
 shapeu=[A D S R]
 elseif Type==2
-    ZKO=[0:1/(16384-490):1];
-    for n=1:length(ZKO)
-        ZKO(n)=1*(1-n/(16384-490))^2;
-    end
-    shapeu=[A ZKO]
+t=[0:1:8192]
+de=[1:exp(-(5*t/T-0.03)):0];
+shapeu=[A de]
 end
 end
 
