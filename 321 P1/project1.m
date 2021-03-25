@@ -1,5 +1,5 @@
 
-%Fs=8192;
+Fs=8192;
 %T=[0:1/8192:0.97]
 %freq=;
 %y=sin(2*pi*freq*T);
@@ -133,8 +133,8 @@ plot(xharm4)
 %clarinet
 
 J=11;
-A_vect=0.9.^[0:J-1];
-%A_vect=[1 1 1 1 1 1 1 1 1 1 1];
+
+A_vect=[1 1 1 1 1 1 1 1 1 1 1];
 D=293.6;
 Eb=311.13;
 F=349.23;
@@ -147,3 +147,35 @@ F8=harmonics(F,0.25,J,A_vect,1);
 D2=harmonics(D,1,J,A_vect,1);
 clar_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
 soundsc(clar_harmonic)
+
+%piano
+
+%G8P=harmonics(G,0.25,J,A_vect,2);
+%E2P=harmonics(Eb,1,J,A_vect,2);
+%F8P=harmonics(F,0.25,J,A_vect,2);
+%D2P=harmonics(D,1,J,A_vect,2);
+%piano_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
+
+
+
+
+
+
+
+
+
+
+
+
+ZKO=[0:1/16384:1];
+for n=1:length(ZKO)
+    ZKO(n)=1*(1-n/16384)^2;
+end
+plot(ZKO)
+
+
+
+
+
+
+
