@@ -19,52 +19,52 @@ half_d2=gentone(293.66,0.97,1,0);
 %eigth_rest=genrest(0.25);
 %rest=genrest(0.03);
 %soundsc(eigth_b);
-figure(1)
-subplot(4,1,1);
+%figure(1)
+%subplot(4,1,1);
 y=eigth_g;
 x=[0:1/8192:.25];
-plot(x,y)
-title('Eighth G')
-subplot(4,1,2);
+%plot(x,y)
+%title('Eighth G')
+%subplot(4,1,2);
 y2=eigth_f;
-plot(x,y2);
-title('Eighth F')
-subplot(4,1,3)
+%plot(x,y2);
+%title('Eighth F')
+%subplot(4,1,3)
 y3=half_e;
 x2=[0:1/8192:1];
-plot(x2,y3)
-title('Half E')
-subplot(4,1,4)
+%plot(x2,y3)
+%title('Half E')
+%subplot(4,1,4)
 y4=half_d;
 x2=[0:1/8192:1];
-plot(x2,y4)
-title('Half D')
+%plot(x2,y4)
+%title('Half D')
 
-figure(6)
-subplot(4,1,1);
+%figure(6)
+%subplot(4,1,1);
 y=eigth_g2;
 x=[0:1/8192:.22];
-plot(y)
-title('Eighth G')
-subplot(4,1,2);
+%plot(y)
+%title('Eighth G')
+%subplot(4,1,2);
 y2=eigth_f2;
-plot(y2);
-title('Eighth F')
-subplot(4,1,3)
+%plot(y2);
+%title('Eighth F')
+%subplot(4,1,3)
 y3=half_e2;
 x2=[0:1/8192:0.97];
-plot(y3)
-title('Half E')
-subplot(4,1,4)
+%plot(y3)
+%title('Half E')
+%subplot(4,1,4)
 y4=half_d2;
 x2=[0:1/8192:0.97];
-plot(y4)
-title('Half D')
+%plot(y4)
+%title('Half D')
 
 melody=[eigth_rest eigth_g eigth_g eigth_g half_e eigth_rest eigth_f eigth_f eigth_f half_d]
 %soundsc(melody);
-figure(2)
-spectrogram(melody,256,196, 512 , 8192,'yaxis')
+%figure(2)
+%spectrogram(melody,256,196, 512 , 8192,'yaxis')
 %up to this point written by Joshua Proulx
 
 T=0.25;
@@ -82,10 +82,10 @@ S=0.6+zeros(1,LR);
 sloper=-0.6/(0.02*8192);
 R=[0.6:sloper:0];
 shapez=[A D S R]
-figure(3)
+%figure(3)
 y7=shapez;
 
-plot(y7);
+%plot(y7);
 
 
 echo=zeros(1,2*8192);
@@ -100,35 +100,59 @@ reverb=conv(melody,echo);
 %soundsc(reverb);
 
 %plotting reverb
-figure(4)
+%figure(4)
 Xreverb=linspace(0,4.25,length(reverb));
-plot(Xreverb,reverb)
-ylabel('Frequency(Hz)');
-xlabel('Time(s)');
-figure(5)
-spectrogram(reverb,256,196,512,8192,'yaxis');
+%plot(Xreverb,reverb)
+%ylabel('Frequency(Hz)');
+%xlabel('Time(s)');
+%figure(5)
+%spectrogram(reverb,256,196,512,8192,'yaxis');
 
 
 %generate 440hz with 9 harmonics
 harmony1=harmonics(440,1,9,[1 1 1 1 1 1 1 1 1],1);
-figure(9)
-subplot(2,1,1)
+figure(1)
+subplot(1,3,1)
+
 spectrogram(harmony1,256,196, 512 , 8192,'yaxis')
+title('9 Harmonics')
 
 harmony2=harmonics(440,1,10,[1 1 1 1 1 1 1 1 1 1],1);
-subplot(2,1,2)
+subplot(1,3,2)
 spectrogram(harmony2,256,196, 512 , 8192,'yaxis')
-figure(10)
-harmony3=harmonics(440,1,1,[1],1);
-%soundsc(harmony3)
+title('10 Harmonics')
+harmony3=harmonics(440,1,11,[1 1 1 1 1 1 1 1 1 1 1],1);
+subplot(1,3,3)
+spectrogram(harmony3,256,196, 512 , 8192,'yaxis')
+title('11 Harmonics')
+
+
+Hz440=harmonics(440,1,1,[1],0)
+Hz440H=harmonics(440,1,9,[1 1 1 1 1 1 1 1 1],0)
+figure(2)
 subplot(2,1,1)
-xharm=harmony3(411:1886);
-xharm2=[xharm xharm];
-plot(xharm2)
+x=[0:1/8192:1];
+plot(x,Hz440)
+title('0 Harmonics')
 subplot(2,1,2)
-xharm3=harmony1(411:1886)
-xharm4=[xharm3 xharm3]
-plot(xharm4)
+plot(x,Hz440H)
+title('9 Harmonics')
+
+
+
+
+
+%figure(10)
+%harmony3=harmonics(440,1,1,[1],1);
+%soundsc(harmony3)
+%subplot(2,1,1)
+%xharm=harmony3(411:1886);
+%xharm2=[xharm xharm];
+%plot(xharm2)
+%subplot(2,1,2)
+%xharm3=harmony1(411:1886)
+%xharm4=[xharm3 xharm3]
+%plot(xharm4)
 
 %clarinet
 
@@ -156,15 +180,15 @@ E2P=harmonics(Eb,1,J2,B_vect,2);
 F8P=harmonics(F,0.25,J2,B_vect,2);
 D2P=harmonics(D,1,J2,B_vect,2);
 piano_harmonic=[rest1 G8 G8 G8 E2 rest1 F8 F8 F8 D2];
-soundsc(piano_harmonic)
+%soundsc(piano_harmonic)
 
-figure(15)
+%figure(15)
 poop=0.25;
 T=8192*poop;
 t=[0:1:T]
 de=[exp(-(5*t/T))];
 %plot(de)
-spectrogram(G8P,256,196, 512 , 8192,'yaxis')
+%spectrogram(G8P,256,196, 512 , 8192,'yaxis')
 
 
 
